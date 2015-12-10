@@ -1,0 +1,22 @@
+phpserver:
+  build: ./docker/php
+  volumes:
+    - /home/ctankersley/Projects/dockerfordevs:/var/www/
+  links:
+    - mysqlserver
+
+mysqlserver:
+  image: mysql
+  environment:
+    MYSQL_DATABASE: dockerfordevs
+    MYSQL_ROOT_PASSWORD: docker
+  volumes:
+    - /var/lib/mysql
+
+nginx:
+  build: ./docker/nginx
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - phpserver
