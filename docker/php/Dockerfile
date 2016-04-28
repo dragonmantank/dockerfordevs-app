@@ -8,4 +8,4 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install iconv mcrypt \
     && docker-php-ext-install pdo \
     && docker-php-ext-install pdo_mysql
-CMD ["php-fpm"]
+CMD ["/usr/local/sbin/php-fpm"]

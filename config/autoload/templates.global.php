@@ -15,6 +15,7 @@ return [
         'extension' => 'phtml',
         'paths' => [
             'error'  => ['templates/error'],
+            'layout'  => ['templates/layout'],
         ]
     ]
 ];

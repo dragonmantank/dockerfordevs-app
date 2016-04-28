@@ -1,7 +1,7 @@
 phpserver:
   build: ./docker/php
   volumes:
-    - /home/ctankersley/Projects/dockerfordevs:/var/www/
+    - ./:/var/www/
   links:
     - mysqlserver
 
