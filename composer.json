@@ -1,30 +1,24 @@
 {
     "name": "zendframework/zend-expressive-skeleton",
+    "description": "Zend expressive skeleton. Begin developing PSR-7 middleware applications in seconds!",
     "type": "project",
     "homepage": "https://github.com/zendframework/zend-expressive-skeleton",
-    "license": "BSD-3-CLAUSE",
-    "authors": [
-        {
-            "name": "Geert Eltink",
-            "homepage": "https://xtreamwayz.github.io/"
-        }
-    ],
+    "license": "BSD-3-Clause",
     "require": {
+        "php": "^5.6 || ^7.0",
         "roave/security-advisories": "dev-master",
-        "zendframework/zend-expressive": "^0.5",
-        "zendframework/zend-stdlib": "~2.7",
-        "zendframework/zend-expressive-fastroute": "^0.1",
-        "zendframework/zend-servicemanager": "^2.5",
-        "ocramius/proxy-manager": "^1.0",
-        "zendframework/zend-expressive-platesrenderer": "^0.1",
-        "zendframework/zend-db": "~2.6",
-        "robmorgan/phinx": "dev-0.5.x-dev"
+        "zendframework/zend-expressive": "^1.0",
+        "zendframework/zend-expressive-helpers": "^2.0",
+        "zendframework/zend-stdlib": "^2.7 || ^3.0",
+        "zendframework/zend-expressive-fastroute": "^1.0",
+        "zendframework/zend-servicemanager": "^2.7.3 || ^3.0",
+        "zendframework/zend-expressive-platesrenderer": "^1.0",
+        "zendframework/zend-db": "^2.8"
     },
     "require-dev": {
-        "composer/composer": ">=1.0.0-alpha10",
         "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "^2.3",
-        "filp/whoops": "^1.1"
+        "filp/whoops": "^1.1 || ^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,13 +27,19 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "AppTest\\": "test/"
+            "AppTest\\": "test/AppTest/"
         }
     },
     "scripts": {
-        "test": [
-            "php vendor/squizlabs/php_codesniffer/scripts/phpcs",
-            "php vendor/phpunit/phpunit/phpunit"
-        ]
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "serve": "php -S 0.0.0.0:8080 -t public public/index.php",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "upload-coverage": "coveralls -v"
     }
 }
