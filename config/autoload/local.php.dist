@@ -4,4 +4,13 @@ return [
     'debug' => true,
 
     'config_cache_enabled' => false,
+
+    'db' => [
+        'driver'   => 'Pdo',
+        'hostname' => 'localhost',
+        'port'     => '3306',
+        'database' => 'dockerfordevs',
+        'user'     => 'root',
+        'password' => '',
+    ],
 ];
