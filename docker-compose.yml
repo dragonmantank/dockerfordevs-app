@@ -1,0 +1,21 @@
+version: '2'
+
+volumes:
+  mysqldata:
+    driver: local
+
+services:
+  d4dapp:
+    build: ./docker/
+    volumes:
+      - ./:/var/www/
+    ports:
+      - 8080:80
+
+  mysqlserver:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: dockerfordevs
+      MYSQL_ROOT_PASSWORD: 's3curep@assword'
+    volumes:
+      - mysqldata:/var/lib/mysql

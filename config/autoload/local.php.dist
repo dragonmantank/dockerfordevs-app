@@ -7,10 +7,10 @@ return [
 
     'db' => [
         'driver'   => 'Pdo_Mysql',
-        'hostname' => 'localhost',
+        'hostname' => 'mysqlserver',
         'port'     => '3306',
         'database' => 'dockerfordevs',
         'user'     => 'root',
-        'password' => '',
+        'password' => 's3curep@assword',
     ],
 ];
