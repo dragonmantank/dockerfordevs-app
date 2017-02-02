@@ -6,7 +6,7 @@ return [
     'config_cache_enabled' => false,
 
     'db' => [
-        'driver'   => 'Pdo',
+        'driver'   => 'Pdo_Mysql',
         'hostname' => 'localhost',
         'port'     => '3306',
         'database' => 'dockerfordevs',
