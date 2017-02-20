@@ -1,0 +1,19 @@
+version: "3"
+
+volumes:
+  mysqldata:
+
+services:
+  phpserver:
+    image: dragonmantank/pa-sampleapp:phpserver
+
+  mysqlserver:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: dockerfordevs
+      MYSQL_ROOT_PASSWORD: docker
+
+  nginx:
+    image: dragonmantank/pa-sampleapp:nginx
+    ports:
+      - "80:80"

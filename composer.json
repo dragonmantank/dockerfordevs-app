@@ -10,15 +10,16 @@
         }
     ],
     "require": {
+        "php": "^5.6 || ^7.0",
         "roave/security-advisories": "dev-master",
-        "zendframework/zend-expressive": "^0.5",
-        "zendframework/zend-stdlib": "~2.7",
-        "zendframework/zend-expressive-fastroute": "^0.1",
-        "zendframework/zend-servicemanager": "^2.5",
-        "ocramius/proxy-manager": "^1.0",
-        "zendframework/zend-expressive-platesrenderer": "^0.1",
-        "zendframework/zend-db": "~2.6",
-        "robmorgan/phinx": "dev-0.5.x-dev"
+        "zendframework/zend-expressive": "^1.0",
+        "zendframework/zend-expressive-helpers": "^2.0",
+        "zendframework/zend-stdlib": "^2.7 || ^3.0",
+        "zendframework/zend-expressive-fastroute": "^1.0",
+        "zendframework/zend-servicemanager": "^2.7.3 || ^3.0",
+        "zendframework/zend-expressive-platesrenderer": "^1.0",
+        "zendframework/zend-db": "^2.8",
+        "robmorgan/phinx": "^0.7.1"
     },
     "require-dev": {
         "composer/composer": ">=1.0.0-alpha10",

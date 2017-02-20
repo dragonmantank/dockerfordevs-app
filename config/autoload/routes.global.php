@@ -1,5 +1,4 @@
 <?php
-
 return [
     'dependencies' => [
         'invokables' => [
@@ -9,7 +8,6 @@ return [
             App\Queue\Application\IndexAction::class => App\Queue\Application\IndexActionFactory::class
         ]
     ],
-
     'routes' => [
         [
             'name' => 'index',
