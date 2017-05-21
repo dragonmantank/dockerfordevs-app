@@ -12,6 +12,13 @@ services:
     ports:
       - 8080:80
 
+  testrunner:
+    build: ./docker/
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: vendor/bin/phpunit -c .
+
   mysqlserver:
     image: mysql
     environment:
