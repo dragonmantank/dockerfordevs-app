@@ -13,13 +13,45 @@ services:
       MYSQL_PASSWORD: 's3curep@assword'
       MYSQL_PORT: 3306
       MYSQL_DATABASE: dockerfordevs
+    build: ./docker/d4dapp
+    depends_on:
+      - fluentd
     volumes:
       - ./:/var/www/
     ports:
       - 8080:80
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: 127.0.0.1:24224
+        tag: apache.access
+
+  fluentd:
+    build: docker/fluentd
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ./docker/fluentd/fluent.conf:/fluentd/etc/fluent.conf
+    ports:
+      - 24224:24224
+      - 24224:24224/udp
+
+  elasticsearch:
+    image: elasticsearch
+    expose:
+      - 9200
+    ports:
+      - 9200:9200
+
+  kibana:
+    image: kibana
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
 
   testrunner:
-    build: ./docker/
+    build: ./docker/d4dapp
     volumes:
       - ./:/app
     working_dir: /app
