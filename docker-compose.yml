@@ -7,6 +7,12 @@ volumes:
 services:
   d4dapp:
     build: ./docker/
+    environment:
+      MYSQL_HOST: 'mysqlserver'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 's3curep@assword'
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: dockerfordevs
     volumes:
       - ./:/var/www/
     ports:

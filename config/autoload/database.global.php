@@ -1,10 +1,6 @@
 <?php
 
 return [
-    'debug' => true,
-
-    'config_cache_enabled' => false,
-
     'db' => [
         'driver'   => 'Pdo_Mysql',
         'hostname' => getenv('MYSQL_HOST'),
